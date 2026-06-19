@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://krentenaudom.github.io/portal-web-hth-com-cn/sitemap.xml
