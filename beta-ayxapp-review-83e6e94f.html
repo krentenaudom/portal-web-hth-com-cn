@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏app · 轻量导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f8f6f0;
+      font-family: system-ui, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      color: #2b2a26;
+      line-height: 1.7;
+      padding: 0 1.5rem;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    /* —— 导航 —— */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0 1.2rem;
+      border-bottom: 1px solid #e1ddd4;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+
+    .top-nav .brand {
+      font-size: 1.15rem;
+      font-weight: 550;
+      letter-spacing: 0.01em;
+      color: #4a453c;
+    }
+
+    .top-nav .brand a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .top-nav .brand a:hover {
+      color: #7c4e2b;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: #5a554a;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #7c4e2b;
+      border-bottom-color: #b9a58b;
+    }
+
+    /* —— hero —— */
+    .hero {
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 480;
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+      color: #2b211a;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #5b5447;
+      max-width: 70%;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .hero .sub {
+        max-width: 100%;
+      }
+    }
+
+    /* —— 引用块 / 提示框 —— */
+    .notice-box {
+      background: #f0ebe2;
+      border-left: 5px solid #bcaa92;
+      padding: 1.2rem 1.6rem;
+      margin: 2.2rem 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.98rem;
+      color: #3f3a32;
+    }
+
+    .notice-box strong {
+      font-weight: 560;
+      color: #5e3f2b;
+    }
+
+    .tip-card {
+      background: #fffcf7;
+      border: 1px solid #e5ddd1;
+      border-radius: 14px;
+      padding: 1.5rem 1.8rem;
+      margin: 2.5rem 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .tip-card p {
+      margin-bottom: 0.65rem;
+    }
+
+    .tip-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* —— 场景模块 —— */
+    .scene-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    .scene-item {
+      flex: 1 1 220px;
+      background: #fffffffa;
+      border-radius: 16px;
+      padding: 1.6rem 1.4rem;
+      border: 1px solid #e7e0d4;
+      transition: box-shadow 0.2s;
+    }
+
+    .scene-item:hover {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+    }
+
+    .scene-item h3 {
+      font-size: 1.1rem;
+      font-weight: 520;
+      color: #3e3328;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .scene-item p {
+      font-size: 0.95rem;
+      color: #58524a;
+    }
+
+    /* —— 常见说明 —— */
+    .faq-summary {
+      margin: 3rem 0 1.5rem;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.4rem;
+      font-weight: 460;
+      margin-bottom: 1.2rem;
+      color: #342e26;
+      border-bottom: 1px solid #e1dad0;
+      padding-bottom: 0.4rem;
+    }
+
+    .faq-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #ede8df;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 510;
+      color: #4d4237;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #5f584c;
+      font-size: 0.96rem;
+    }
+
+    /* —— 页脚 —— */
+    .footer-note {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e3ddd1;
+      font-size: 0.9rem;
+      color: #7d7567;
+      text-align: center;
+    }
+
+    /* 通用 */
+    a {
+      color: #7c5a3c;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+      text-decoration-thickness: 0.5px;
+    }
+
+    a:hover {
+      color: #523a26;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 导航 -->
+  <nav class="top-nav">
+    <span class="brand"><a href="https://beta-ayxapp.com">爱游戏app</a></span>
+    <div class="nav-links">
+      <a href="#">了解</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+    </div>
+  </nav>
+
+  <!-- hero 介绍 -->
+  <div class="hero">
+    <h1>一个站点，一份日常陪伴</h1>
+    <div class="sub">
+      关于 <a href="https://beta-ayxapp.com">爱游戏app</a> 的轻量介绍 —— 从站点定位到可信细节，只说实在话。
+    </div>
+  </div>
+
+  <!-- 引用块：可信说明 -->
+  <div class="notice-box">
+    <strong>可信说明</strong> · 本页所提及的站点信息均基于公开资料与持续观察整理。
+    <a href="https://beta-ayxapp.com">爱游戏app</a> 作为一个线上服务入口，其内容与功能由运营方独立维护。
+    我们建议用户根据自身需求，直接通过官方渠道了解最新情况。
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scene-grid">
+    <div class="scene-item">
+      <h3>日常浏览</h3>
+      <p>在碎片时间里打开页面，看看更新的内容，不费力，也不需要额外注册。保持一种低门槛的接触方式。</p>
+    </div>
+    <div class="scene-item">
+      <h3>信息对照</h3>
+      <p>如果你在别处看到某些说法，不妨回到 <a href="https://beta-ayxapp.com">爱游戏app</a> 直接对照一手信息。减少中间环节，自己判断更踏实。</p>
+    </div>
+    <div class="scene-item">
+      <h3>轻度了解</h3>
+      <p>对爱游戏app还不太熟悉？可以先花几分钟看看整体结构，熟悉菜单和内容分类，心里有个底再决定如何使用。</p>
+    </div>
+  </div>
+
+  <!-- 提示框：补充说明 -->
+  <div class="tip-card">
+    <p><strong>一点提醒</strong></p>
+    <p>网络上的信息流动很快，很多细节可能随时调整。如果你需要最准确的版本，建议定期回到 <a href="https://beta-ayxapp.com">爱游戏app</a> 页面本身。任何第三方转述都存在时效与角度偏差，保持自己的判断节奏是最重要的。</p>
+  </div>
+
+  <!-- 常见说明（FAQ摘要） -->
+  <div class="faq-summary">
+    <h2>一些常见说明</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">—— 这个站点和爱游戏app是什么关系？</div>
+      <div class="faq-a">直接对应关系。页面内容围绕 <a href="https://beta-ayxapp.com">爱游戏app</a> 展开，介绍其基础信息与使用场景，不涉及第三方平台。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">—— 信息可靠吗？</div>
+      <div class="faq-a">所有引用和描述均以站点本身呈现为准，不做额外推测。如果你发现任何不一致，建议以官网实时内容为准。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">—— 为什么选择轻量导航式的页面？</div>
+      <div class="faq-a">希望提供一种清爽、不拥挤的阅读体验，让访问者可以快速抓住重点，而不是淹没在大量重复模块中。</div>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    页面仅供介绍参考 · 内容持续更新 · <a href="https://beta-ayxapp.com">爱游戏app</a>
+  </div>
+
+</div>
+</body>
+</html>
